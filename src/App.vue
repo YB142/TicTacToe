@@ -3,7 +3,7 @@
 <template>
  <div>
       <div v-if="startButton">
-        <button @click="startButton = !startButton">Start game</button>
+        <button id="startB" @click="startButton = !startButton">Start game</button>
       </div>
       <GameBoard v-else></GameBoard>
   </div>
@@ -23,5 +23,10 @@ export default {
 }
 </script>
 <style>
-
+  #startB {
+    padding: 200px;
+    font-size: 100px;
+    margin-left: 370px;
+    margin-top: 185px;
+  }
 </style>

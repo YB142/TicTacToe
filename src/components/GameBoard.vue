@@ -1,5 +1,9 @@
 <template>
   <div>
+    <div>
+    <h1>TicTacToe</h1>
+    <p>rules: In order to win you must have 3 tokens either in a row, column, or diagonally</p>
+    </div>
     <ul>
       <div class="rows" id="row1">
         <button class="buttons" id="button1"></button>
@@ -23,6 +27,17 @@
 <style>
     .buttons {
         padding: 100px;
-        
+    }
+    div ul {
+      margin-left: 470px;
+      margin-top: 150px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 50px;
+    }
+    p {
+      font-size: 30px;
+      text-align: center;
     }
 </style>
