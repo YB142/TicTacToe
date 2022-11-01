@@ -4,8 +4,12 @@
       <div>
       <h1>TicTacToe</h1>
       <p>Rules: In order to win you must have 3 tokens either in a row, column, or diagonally.</p>
+      <div v-if="tokenPicked">
+        <h2>Pick your token</h2>
+      <ul @click="tokenPicked = !tokenPicked" id="tokenbutton"><button id="tokenX">X</button><button id="tokenO">O</button></ul>
       </div>
-      <ul>
+      </div>
+      <ul id="gameboard">
         <div class="rows" id="row1">
           <button class="buttons" id="button1"></button>
           <button class="buttons" id="button2"></button>
@@ -38,7 +42,8 @@ export default {
   },
   data() {
     return {
-      quitButton: true
+      quitButton: true,
+      tokenPicked: true
     }
   }
 }
@@ -48,9 +53,9 @@ export default {
     .buttons {
         padding: 100px;
     }
-    div ul {
+    #gameboard {
       margin-left: 475px;
-      margin-top: 85px;
+      margin-top: 20px;
     }
     h1 {
       text-align: center;
@@ -61,7 +66,14 @@ export default {
       text-align: center;
     }
     footer {
-      margin-top: 50px;
+      margin-top: 30px;
       text-align: center;
     }
+    h2 {
+      text-align: center;
+    }
+    #tokenbutton {
+      margin-left: 750px;
+    }
+
 </style>
