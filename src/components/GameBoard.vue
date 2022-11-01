@@ -1,6 +1,7 @@
 <template>
   <div>
-   <div v-if="quitButton">
+    <div>
+      <div v-if="quitButton">
       <div>
       <h1>TicTacToe</h1>
       <p>Rules: In order to win you must have 3 tokens either in a row, column, or diagonally.</p>
@@ -29,8 +30,9 @@
       <footer>
         <button @click="quitButton = !quitButton">Quit Game</button>
       </footer>
+      </div>
+      <quitScreen v-else></quitScreen>
     </div>
-    <quitScreen v-else></quitScreen>
   </div>
 </template>
 
@@ -53,7 +55,13 @@ export default {
       button6: "",
       button7: "",
       button8: "",
-      button9: ""
+      button9: "",
+      winner: false
+    }
+  },
+  methods: {
+    youWon: function() {
+      winner = true
     }
   }
 }
