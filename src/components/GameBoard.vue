@@ -6,24 +6,24 @@
       <p>Rules: In order to win you must have 3 tokens either in a row, column, or diagonally.</p>
       <div v-if="tokenPicked">
         <h2>Pick your token</h2>
-      <ul @click="tokenPicked = !tokenPicked" id="tokenbutton"><button @click="token = X" id="tokenX">X</button><button @click="token = O" id="tokenO">O</button></ul>
+      <ul @click="tokenPicked = !tokenPicked" id="tokenbutton"><button @click="token = 'X'" id="tokenX">X</button><button @click="token = 'O'" id="tokenO">O</button></ul>
       </div>
       </div>
       <ul id="gameboard">
         <div class="rows" id="row1">
-          <button class="buttons" id="button1"></button>
-          <button class="buttons" id="button2"></button>
-          <button class="buttons" id="button3"></button>
+          <button @click="button1 = token" class="buttons" >{{button1}}</button>
+          <button @click="button2 = token" class="buttons" >{{button2}}</button>
+          <button @click="button3 = token" class="buttons" >{{button3}}</button>
         </div>
         <div class="rows" id="row2">
-          <button class="buttons" id="button4"></button>
-          <button class="buttons" id="button5"></button>
-          <button class="buttons" id="button6"></button>
+          <button @click="button4 = token" class="buttons" >{{button4}}</button>
+          <button @click="button5 = token" class="buttons" >{{button5}}</button>
+          <button @click="button6 = token" class="buttons" >{{button6}}</button>
         </div>
         <div class="rows" id="row3">
-          <button class="buttons" id="button7"></button>
-          <button class="buttons" id="button8"></button>
-          <button class="buttons" id="button9"></button>
+          <button @click="button7 = token" class="buttons" >{{button7}}</button>
+          <button @click="button8 = token" class="buttons" >{{button8}}</button>
+          <button @click="button9 = token" class="buttons" >{{button9}}</button>
         </div>
       </ul>
       <footer>
@@ -44,18 +44,36 @@ export default {
     return {
       quitButton: true,
       tokenPicked: true,
-      token: []
+      token: "",
+      button1: "",
+      button2: "",
+      button3: "",
+      button4: "",
+      button5: "",
+      button6: "",
+      button7: "",
+      button8: "",
+      button9: ""
     }
   }
 }
 </script>
 
 <style>
+    .rows {
+      max-height: 100px;
+    }
     .buttons {
-        padding: 100px;
+        width: 100px;
+        height: 100px;
+        font-size: 50px;
+        background-color: black;
+        color: white;
+        border: 2px solid white;
+        vertical-align: middle;
     }
     #gameboard {
-      margin-left: 475px;
+      margin-left: 625px;
       margin-top: 20px;
     }
     h1 {
@@ -76,5 +94,6 @@ export default {
     #tokenbutton {
       margin-left: 750px;
     }
+  
 
 </style>
