@@ -6,7 +6,7 @@
       <p>Rules: In order to win you must have 3 tokens either in a row, column, or diagonally.</p>
       <div v-if="tokenPicked">
         <h2>Pick your token</h2>
-      <ul @click="tokenPicked = !tokenPicked" id="tokenbutton"><button id="tokenX">X</button><button id="tokenO">O</button></ul>
+      <ul @click="tokenPicked = !tokenPicked" id="tokenbutton"><button @click="token = X" id="tokenX">X</button><button @click="token = O" id="tokenO">O</button></ul>
       </div>
       </div>
       <ul id="gameboard">
@@ -43,7 +43,8 @@ export default {
   data() {
     return {
       quitButton: true,
-      tokenPicked: true
+      tokenPicked: true,
+      token: []
     }
   }
 }
