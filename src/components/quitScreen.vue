@@ -1,12 +1,12 @@
 <template>
     <form>
-    <div>
         <div>
-            <h1>ONLY LOSERS QUIT</h1>
-            <button>Restart</button>
+            <div>
+                <h1>ONLY LOSERS QUIT</h1>
+                <button>Restart</button>
+            </div>
         </div>
-    </div>
-</form>
+    </form>
 </template>
 
 <style>
