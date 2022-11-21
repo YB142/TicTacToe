@@ -8,6 +8,7 @@
 
 </template>
 <script>
+let socket = new WebSocket("ws://javascript.info");
 import GameBoard from './components/GameBoard.vue';
 export default {
   components: {
