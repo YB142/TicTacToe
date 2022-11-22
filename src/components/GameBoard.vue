@@ -13,20 +13,21 @@
           <h7 v-if="thirdColumnWin()">3rd column Winner</h7>
           <h8 v-if="leftDiagnoWin()">Left diagno Winner</h8>
           <h9 v-if="rightDiagnoWin()">Right diagno Winner</h9>
+          <h10 v-if="draw()">Draw</h10>
         </div>
         <div v-if="!winner">
           <p>Rules: In order to win you must have 3 tokens either in a row, column, or diagonally.</p>
           <div v-if="!tokenPicked">
-            <h2>Pick starting token</h2>
+            <h2>Click to pick starting token</h2>
             <ul @click="tokenPicked = !tokenPicked" id="tokenbutton">
-              <button @click="tokenX" id="tokenX">X</button>
-              <button @click="tokenO" id="tokenO">O</button>
+              <button @click="tokenO" id="tokenO">X</button>
+              <button @click="tokenX" id="tokenX">O</button>
             </ul>
           </div>
         <!-- v-for="item in array" -->
         <table id="GB" >
           <tr v-for="(row, r) in rows" :key="r" class="rows">
-            <td @click="onCellClick(r,c), changeToken()" v-for="(cell, c) in row" :key="c" class="td"> {{ cell }} </td>
+            <td @click="onCellClick(r,c)" v-for="(cell, c) in row" :key="c" class="td"> {{ cell }} </td>
           </tr>
         </table>
         </div>
@@ -70,13 +71,8 @@ export default {
   },
   methods: {
     onCellClick(r,c) {
-      this.$set(this.rows[r], c, this.token);
-    },
-    changeToken() { 
-      // this.empty = this.token
-      // this.token = this.otherToken
-      // this.otherToken = this.empty
       [this.token, this.otherToken] = [this.otherToken, this.token]
+      this.$set(this.rows[r], c, this.token);
     },
     tokenX() {
       this.token = "X";
@@ -169,6 +165,28 @@ export default {
         this.winner = true;
         return true;
       }
+    },
+    draw() {
+      if (this.rows[0][0] != "") {
+        if (this.rows[0][1] != "") {
+          if (this.rows[0][2] != "") {
+            if (this.rows[1][0] != "") {
+              if (this.rows[1][1] != "") {
+                if (this.rows[1][2] != "") {
+                  if (this.rows[2][0] != "") {
+                    if (this.rows[2][1] != "") {
+                      if (this.rows[2][2] != "") {
+                        this.winner = true
+                        return true;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }  
@@ -224,4 +242,6 @@ h2 {
   font-family: cursive;
   font-size: large;
 }
+
+
 </style>
